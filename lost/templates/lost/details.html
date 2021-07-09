@@ -1,0 +1,32 @@
+{% extends 'lost/layout.html' %}
+
+{% block title %}
+Details of lost item
+{% endblock %}
+
+{% block body %}
+<div class="article-container">
+
+    <h2><strong>{{ item.title }}</strong></h2>
+    <span>
+        {% if item.status == 0 %}
+        Not verified <i class="fa fa-exclamation-circle" style="color:red;font-size:20px;" title="Not verified"></i>
+        {% elif item.status == 1 %}
+        verified <i class="fa fa-check" style="color:green;font-size:20px;" title="verified"></i>
+        {% endif %}
+    </span>
+    <span><a href="{% url 'lost:index' %}">Go back</a></span>
+
+    <hr class="my-4">
+    <img src="{{ item.picture.url }}" alt="Lost item">
+    <p>
+        <strong>Description: </strong>{{ item.description }}
+    </p>
+    <p>
+        <strong>Contact: </strong>{{ item.email_id }}
+    </p>
+    <p>
+        <strong>Published time: </strong>{{ item.pub_date }}
+    </p>
+</div>
+{% endblock %}

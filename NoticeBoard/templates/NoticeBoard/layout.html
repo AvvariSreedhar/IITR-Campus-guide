@@ -1,0 +1,120 @@
+<!Doctype html>
+{% load static %}
+<html>
+
+<head>
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        NOTICEBOARD
+    </title>
+    <style type="text/css">
+        body {
+            background-color: lightsalmon;
+        }
+
+        .container {
+            margin: 50px 50px 100px 50px;
+            margin-bottom: 50px;
+            background-color: white;
+            padding: 10px 10px 10px 10px;
+        }
+
+        .container .notice {
+            display: block;
+            font-size: 1.5em;
+            margin-top: 0px;
+            margin-bottom: 1px;
+            border-bottom: 0.5px solid black;
+            color: black;
+
+        }
+
+        .container .notice a:link,
+        .container .notice a:visited {
+            text-decoration: none;
+            color: black;
+        }
+
+        .container .notice a:hover {
+            background-color: grey;
+        }
+
+        .searchbox {
+            margin: 80px 50px 0px 50px;
+            display: block;
+            font-size: 1.5em;
+            width: 300px;
+            background-color: white;
+        }
+
+        .pagenumber {
+            display: block;
+            background-color: lightsalmon;
+            font-size: 1.5em;
+            width: 1000px;
+            color: black;
+            text-decoration: none;
+            padding: 1px;
+            text-align: center;
+            margin: 10px 10px 10px 10px;
+        }
+
+        .pagenumber a:link,
+        .pagenumber a:visited {
+            text-decoration: none;
+            background-color: darkred;
+            color: whitesmoke;
+
+        }
+
+        .pagenumber a:hover {
+            background-color: gray;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div class="w3-top">
+        <div class="w3-bar w3-red w3-card w3-left-align w3-large">
+            <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red"
+                href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i
+                    class="fa fa-bars"></i></a>
+            {% block head %}
+            {% endblock %}
+            <a href="{% url 'lost:index' %}"
+                class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Lost and Found</a>
+            <a href="https://avvarisreedhar.github.io/IITR-Campus-guide/attributes/" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" target="_blank">Explore</a>
+        </div>
+
+        <!-- Navbar on small screens -->
+        <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+            <a href="{% url 'NoticeBoard:index' %}" class="w3-bar-item w3-button w3-padding-large">NoticeBoard</a>
+            <a href="{% url 'lost:index' %}" class="w3-bar-item w3-button w3-padding-large">Lost and Found</a>
+            <a href="https://avvarisreedhar.github.io/IITR-Campus-guide/attributes/" class="w3-bar-item w3-button w3-padding-large" target="_blank">Explore</a>
+        </div>
+    </div>
+    <p>
+        <br>
+        <br>
+    </p>
+    {% block body %}
+    {% endblock %}
+    <script>
+        // Used to toggle the menu on small screens when clicking on the menu button
+        function myFunction() {
+            var x = document.getElementById("navDemo");
+            if (x.className.indexOf("w3-show") == -1) {
+                x.className += " w3-show";
+            } else {
+                x.className = x.className.replace(" w3-show", "");
+            }
+        };
+    </script>
+
+</body>
+
+</html>

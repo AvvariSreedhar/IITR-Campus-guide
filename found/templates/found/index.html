@@ -1,0 +1,56 @@
+{% extends 'found/layout.html' %}
+{% load static %}
+
+{% block title %}
+Found
+{% endblock %}
+
+{% block body %}
+
+{% if messages %}
+{% for message in messages %}
+<div {% if message.tags %} class="alert alert-{{ message.tags }} alert-dismissible fade show" {% endif %} role="alert">
+    Form submitted successfully
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{% endfor %}
+{% endif %}
+
+<div class="heading-container">
+    <h3>{{ header }}</h3>
+</div>
+
+<div class='container0'>
+    {% for item in items %}
+    <div class='container1'>
+        <img src='{{ item.picture.url }}' alt="lost item" class='lost-item'>
+        <p>
+            <span class='title'>
+                {{ item.title }}
+            </span>
+            <br>
+            <span class='status'>
+                {% if item.status == 0 %}
+                Not verified
+                <i class="fa fa-exclamation-circle" style="color:red;font-size:20px;" title="Not verified"></i>
+                {% elif item.status == 1 %}
+                Verified
+                <i class="fa fa-check" style="color:green;font-size:20px;" title="verified"></i>
+                {% elif item.status == 2 %}
+                Found
+                {% endif %}
+            </span>
+            <br>
+            <a href="{% url 'found:details' item.id %}">
+                <span>Explore more</span>
+            </a>
+        </p>
+    </div>
+    {% empty %}
+    <h2>No found Items to display.</h2>
+    {% endfor %}
+</div>
+
+{% endblock %}

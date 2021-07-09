@@ -1,0 +1,268 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<title>Home page</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="apple-touch-icon" sizes="180x180" href="{% static 'home/icons/apple-touch-icon.png' %}">
+<link rel="icon" type="image/png" sizes="32x32" href="{% static 'home/icons/favicon-32x32.png' %}">
+<link rel="icon" type="image/png" sizes="16x16" href="{% static 'home/icons/favicon-16x16.png' %}">
+<link rel="manifest" href="{% static 'home/icons/site.webmanifest' %}">
+<style>
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: "Lato", sans-serif
+    }
+
+    .w3-bar,
+    h1,
+    button {
+        font-family: "Montserrat", sans-serif
+    }
+
+    .fa-anchor,
+    .fa-coffee {
+        font-size: 200px
+    }
+
+    div.scrl {
+        width: fit-content;
+        max-width: 620px;
+        margin: auto;
+        overflow: scroll;
+        height: 400px;
+        border: 2px solid grey;
+        border-radius: 5px;
+        padding: 10px;
+        font-size: 20px;
+        margin-bottom: 25px;
+    }
+
+    .contacts {
+        padding: 25px 15px;
+        border: solid;
+        border-radius: 10px;
+        Font-size: 25px;
+        background-color: red;
+        color: white;
+        width: fit-content;
+        position: relative;
+        bottom: 32px;
+        right: 20px;
+    }
+
+    .mySlides {
+        display: none;
+        width: 100%;
+    }
+
+    .slide-show {
+        max-width: 900px;
+        margin: auto;
+    }
+</style>
+
+<body>
+
+    <!-- Navbar -->
+    <div class="w3-top">
+        <div class="w3-bar w3-red w3-card w3-left-align w3-large">
+            <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red"
+                href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i
+                    class="fa fa-bars"></i></a>
+            <a href="{% url 'home:index' %}" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
+            <a href="{% url 'NoticeBoard:index' %}"
+                class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">NoticeBoard</a>
+            <a href="{% url 'lost:index' %}"
+                class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Lost and Found</a>
+            <a href="https://avvarisreedhar.github.io/IITR-Campus-guide/attributes/" target="_blank" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Explore</a>
+        </div>
+
+        <!-- Navbar on small screens -->
+        <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+            <a href="{% url 'NoticeBoard:index' %}" class="w3-bar-item w3-button w3-padding-large">NoticeBoard</a>
+            <a href="{% url 'lost:index' %}" class="w3-bar-item w3-button w3-padding-large">Lost and Found</a>
+            <a href="https://avvarisreedhar.github.io/IITR-Campus-guide/attributes/" target="_blank" class="w3-bar-item w3-button w3-padding-large">Explore</a>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="w3-container w3-red w3-center" style="padding:50px 16px">
+        <h1 class="w3-margin w3-jumbo">College Guide</h1>
+        <div class="slide-show">
+            <img class="mySlides" src="{% static 'home/slideshow/thomso.jpg' %}"
+                alt="Picture of James Thomason building, IIT Roorkee.">
+            <img class="mySlides" src="{% static 'home/slideshow/director.jpg' %}"
+                alt="Picture of Dir. Ajit k Chaturvedi, IIT Roorkee.">
+            <img class="mySlides" src="{% static 'home/slideshow/hostels.jpg' %}"
+                alt="Picture of hostels at IIT Roorkee.">
+            <img class="mySlides" src="{% static 'home/slideshow/mgcl.jpg' %}" alt="Picture of MGCL, IIT Roorkee.">
+            <img class="mySlides" src="{% static 'home/slideshow/grounds.jpg' %}" alt="Picture of an open ground.">
+        </div>
+    </header>
+
+    <!-- First Grid -->
+    <div class="w3-row-padding w3-padding-64 w3-container">
+        <div class="w3-content">
+            <div class="w3-twothird">
+                <h1>How can we help you?</h1>
+
+                <p class="w3-text-grey">This web-page is specially designed for the students here in R-Land. This page
+                    consists of Notice Board, Lost and Found, Important Contacts and has an explore part which
+                    describes about each and every place in
+                    IITR. Notice Board constantly intimates you about every notice published in R-Land. Lost and Found
+                    helps the students to retrieve their lost items. Important Contacts consists a list of Email-Id's of
+                    officials whom you wanna consult in IIT-R. And wanna know about a place before visiting it here
+                    comes our explore part which navigates you through IITR each and every place of IITR.
+
+                </p>
+            </div>
+
+            <div class="w3-third w3-center">
+                <i class="fa fa-thumbs-up w3-padding-64 w3-text-red" style="font-size:120px;"></i>
+            </div>
+        </div>
+    </div>
+    <div class="w3-row-padding w3-padding-64 w3-container">
+        <div class="w3-content">
+            <div class="w3-twothird">
+                <h1>Who are we?</h1>
+
+                <p class="w3-text-grey">We are a group of six Computer Science Undergrad's. Our group consists of Junaid
+                    Mohd, Sasi Preetam, Mamidi Rohith, Sreedhar, Sree charan and Giri Nandan
+
+                </p>
+            </div>
+            <div class="w3-third w3-center">
+                <i class="fa fa-user-circle w3-padding-64 w3-text-red" style="font-size:120px;"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="w3-center">
+        <span class="contacts">Important Contacts</span>
+        <i class="fa fa-id-card w3-padding-64 w3-text-red" style="font-size:120px;"></i>
+    </div>
+
+    <div class="scrl">
+        <p>Police station - 01332272222</p>
+        <p>Post office - 01332272122</p>
+        <p>Hospital - 01332284260</p>
+        <p>Bank(SBI) - sbi.01069@sbi.co.in</p>
+        <p>Bank(PNB) - bo4044@pnb.co.in</p>
+        <strong style="font-family:bold;font-size:25px;">Deans</strong>
+        <p>Director - director@iitr.ac.in</p>
+        <p>Deputy Director - ddirector@iitr.ac.in</p>
+        <p>Dean Administration - daiitr@iitr.ac.in</p>
+        <p>Dean Resources and Alumni Affairs - dora@iitr.ac.in</p>
+        <p>Dean Finance & Planning - deanfap_f@iitr.ac.in</p>
+        <p>Dean Faculty Affairs - dfa@iitr.ac.in</p>
+        <p>Dean Academic Affairs - daa@iitr.ac.in</p>
+        <p>Dean Sponsored Research & Industrial Consultancy - dsric@iitr.ac.in</p>
+        <p>Dean Students’ Welfare - dosw@iitr.ac.in</p>
+        <p>Dean Infrastructure - dinfra@iitr.ac.in</p>
+        <p>Dean Saharanpur Campus - deansaharanpurcampus@iitr.ac.in</p>
+        <p>Dean International students - dean.ir@iitr.ac.in </p>
+        <strong style="font-family:bold;font-size:25px;">Department Heads</strong>
+        <p>Architecture deptartment - p.chani@ar.iitr.ac.in </p>
+        <p>Department of Applied Science and Engineering - pant.milli@as.iitr.ac.in
+        </p>
+        <p>Department of Biotechnology - ashwani.sharma@bt.iitr.ac.in </p>
+        <p>Department of Chemical Engineering - shishir@ch.iitr.ac.in </p>
+        <p>Civil Department - sanjay.ghosh@ce.iitr.ac.in </p>
+        <p>Department of Computer Science and Engineering - dharmfec@ece.iitr.ac.in
+        </p>
+        <p>Department of Earthquake Engineering - pankaj.agrawal@eq.iitr.ac.in </p>
+        <p>Department of Earth Sciences - sunilfes@iitr.ac.in </p>
+        <p>Department of Electrical Engineering - gn.pillai@ee.iitr.ac.in
+        </p>
+        <p>Department of Electronics and Communication - sudeb.dasgupta@ece.iitr.ac.in
+        </p>
+        <p>Department of Humanities and Social Sciences - nagendra.kumar@hs.iitr.ac.in
+        </p>
+        <p>Department of Hydrology - manoj.jain@hy.iitr.ac.in
+        </p>
+        <p>Department of Hydro and Renewable Energy - sunil.singal@hre.iitr.ac.in
+        </p>
+        <p>Department of Management Studies - mukesh.barua@ms.iitr.ac.in
+        </p>
+        <p>Department of Mathematics - n.sukavanam@ma.iitr.ac.in
+        </p>
+        <p>Department of Mechanical and Industrial Engineering - bkgandhi@me.iitr.ac.in
+        </p>
+        <p>Department of Metallurgical and Materials Engineering - g.chaudhari@mt.iitr.ac.in
+        </p>
+        <p>Department of Paper Technology - chhaya.sharma@pt.iitr.ac.in
+        </p>
+        <p>Department of Polymer and Process Engineering - sujay@pe.iitr.ac.in
+        </p>
+        <p>Department of Physics -  g.varma@ph.iitr.ac.in
+        </p>
+        <p>Department of Water Resource Development & Management - mlk@wr.iitr.ac.in
+        </p>
+        <strong style="font-family:bold;font-size:25px;">Student Heads</strong>
+        <p>General Secretary(Hostel Affairs) - schopra@ee.iitr.ac.in</p>
+        <p>Deputy General Secretary, Hostel Affairs (PG) - rkumar@ic.iitr.ac.in</p>
+        <p>General Secretary, Academic Affairs (UG) - ereddy@ee.iitr.ac.in </p>
+        <p>General Secretary, Academic Affairs (PG) - akumar19@mt.iitr.ac.in</p>
+        <p>General Secretary, Technical Affairs - gdewat@cs.iitr.ac.in</p>
+        <p>General Secretary, Entrepreneurship Affairs - vkumar@ce.iitr.ac.in</p>
+        <p>General Secretary, Sports Affairs - nkumar4@me.iitr.ac.in</p>
+        <p>General Secretary, Cultural Affairs - dvijay@es.iitr.ac.in </p>
+    </div>
+    <div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
+        <h1 class="w3-margin w3-xlarge">Hope this website helps you. Thank You!</h1>
+    </div>
+
+    <!-- Footer -->
+    <footer class="w3-container w3-padding-64 w3-center w3-opacity">
+        <div class="w3-xlarge w3-padding-32">
+            <p class="w3-text-red">Contact us: </p>
+            <a href="mailto:akanti_g@ee.iitr.ac.in"><i class="fa fa-envelope w3-hover-opacity"></i></a>
+            <a href="mailto:avvari_s@cs.iitr.ac.in"><i class="fa fa-envelope w3-hover-opacity"></i></a>
+            <a href="mailto:ingilala_s@cs.iitr.ac.in"><i class="fa fa-envelope w3-hover-opacity"></i></a>
+            <a href="mailto:mamidi_r@cs.iitr.ac.in"><i class="fa fa-envelope w3-hover-opacity"></i></a>
+            <a href="mailto:md_j@ec.iitr.ac.in"><i class="fa fa-envelope w3-hover-opacity"></i></a>
+            <a href="mailto:pothuri_v@cs.iitr.ac.in"><i class="fa fa-envelope w3-hover-opacity"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        var myIndex = 0;
+        carousel();
+
+        function carousel() {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            myIndex++;
+            if (myIndex > x.length) { myIndex = 1 }
+            x[myIndex - 1].style.display = "block";
+            setTimeout(carousel, 2000); // Change image every 2 seconds
+        }
+        // Used to toggle the menu on small screens when clicking on the menu button
+        function myFunction() {
+            var x = document.getElementById("navDemo");
+            if (x.className.indexOf("w3-show") == -1) {
+                x.className += " w3-show";
+            } else {
+                x.className = x.className.replace(" w3-show", "");
+            }
+        };
+
+    </script>
+
+</body>
+
+</html>

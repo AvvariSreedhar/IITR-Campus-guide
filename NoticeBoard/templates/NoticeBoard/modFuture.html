@@ -1,0 +1,46 @@
+{% extends "NoticeBoard/layout.html" %}
+{% block head %}
+<a href="{% url 'home:index' %}" class="w3-bar-item w3-button w3-padding-large">Home</a>
+<a href="{% url 'NoticeBoard:index' %}"
+                class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white w3-white">NoticeBoard</a>
+{% endblock %}
+{% block body %}
+<h1><center> Upcoming Events </center></h1>
+<div class="container">
+		
+    {% for nt in notice %}
+            {% if text == nt.organiser %}
+
+            {% if year < nt.year %}
+            <div class="notice">
+                {{nt.organiser}} is going to organise a lecture on {{ nt.topic }} at {{ nt.location }} on {{nt.day}}/{{nt.month}}/{{nt.year}} at {{ nt.time }}
+            </div>
+            {% endif %}
+            {% if year == nt.year %}
+                {% if month < nt.month %}
+                <div class="notice">
+                    {{nt.organiser}} is going to organise a lecture on {{ nt.topic }} at {{ nt.location }} on {{nt.day}}/{{nt.month}}/{{nt.year}} at {{ nt.time }}
+                </div>
+                {% endif %}
+            {% endif %}
+            {% if year == nt.year %}
+                {% if month == nt.month %}
+                    {% if day < nt.day %}
+                    <div class="notice">
+                        {{nt.organiser}} is going to organise a lecture on {{ nt.topic }} at {{ nt.location }} on {{nt.day}}/{{nt.month}}/{{nt.year}} at {{ nt.time }}
+                    </div>
+                    {% endif %}
+                {% endif %}
+            {% endif %}
+
+            {% endif %}
+        
+    {% endfor %}
+
+	
+</div>
+  <div class="pagenumber"> 
+<a href="{% url 'NoticeBoard:future' %}"> Move Back to Upcoming Events </a>
+  </div>
+		
+  {% endblock %}
